@@ -10,7 +10,9 @@ client.once("ready", () => {
 
 client.on("message", (message) => {
   if (message.content === "~init") {
-    message.channel.send(`Initializing bot in ${message.channel} channel`);
+    message.channel.send(`Initializing bot in ${message.channel} channel`)
+    .then((msg)=>msg.delete({timeout: 2000}))
+    .catch((err)=>console.log(err));
     greeting(message);
   }
 });
