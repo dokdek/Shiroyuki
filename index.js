@@ -9,8 +9,6 @@ client.once("ready", () => {
   console.log("Bot Ready!");
 });
 
-
-//message.guild.member.hasPermission('ADMINISTRATOR')
 client.on("message", (message) => {
   if (message.content === "~init" && message.member.hasPermission('ADMINISTRATOR')){
     message.channel.send(`Initializing bot in ${message.channel} channel`)
