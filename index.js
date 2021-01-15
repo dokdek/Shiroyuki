@@ -2,16 +2,19 @@ const Discord = require("discord.js");
 const { token } = require("./config.json");
 const greeting = require("./helpers/greeting");
 
+
 const client = new Discord.Client();
 
 client.once("ready", () => {
   console.log("Bot Ready!");
 });
 
+
+//message.guild.member.hasPermission('ADMINISTRATOR')
 client.on("message", (message) => {
-  if (message.content === "~init") {
+  if (message.content === "~init" && message.member.hasPermission('ADMINISTRATOR')){
     message.channel.send(`Initializing bot in ${message.channel} channel`)
-    .then((msg)=>msg.delete({timeout: 2000}))
+    .then((msg)=>msg.delete({timeout: 5000}))
     .catch((err)=>console.log(err));
     greeting(message);
   }
