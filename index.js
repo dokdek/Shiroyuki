@@ -7,6 +7,7 @@ const client = new Discord.Client();
 
 client.once("ready", () => {
   console.log("Bot Ready!");
+  client.user.setActivity('Under Development')
 });
 
 client.on("message", (message) => {
