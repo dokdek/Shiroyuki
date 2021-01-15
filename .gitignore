@@ -2,3 +2,5 @@
 old.js
 /commands
 config.json
+app.yaml
+.gcloudignore
