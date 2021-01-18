@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const serverSave = require("./server-save");
 
-//Make it into a promise chain instead of doing whatever this is.
+//Make it into a promise function chain instead of doing whatever this awful chain is.
 
 const serverQuestion = (user, datacenter) => {
   let serverList;

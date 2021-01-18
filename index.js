@@ -31,22 +31,6 @@ client.on("message", (message) => {
       .catch((err) => console.log(err));
     greeting(message);
   }
-  const commandArgs = message.content.split(" ");
-  if (commandArgs[0] === "~create") {
-    console.log("Creating");
-    if (commandArgs[1].toLowerCase() === "aether") {
-      const newListing = new Aether({
-        listingType: "guild",
-        server: commandArgs[2],
-        name: commandArgs[3],
-        size: commandArgs[4],
-        playstyle: commandArgs[5],
-      });
-      newListing.save()
-        .then((listing)=>message.channel.send("New listing created, add description by this id " + listing._id))
-        .catch((err)=>console.log(err));
-    }
-  }
 });
 
 client.login(token);
