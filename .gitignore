@@ -4,3 +4,4 @@ old.js
 config.json
 app.yaml
 .gcloudignore
+.env

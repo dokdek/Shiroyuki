@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const CreateListing = require("./create-listing");
 
 const greeting = (message) => {
   const embeddedGreeting = new Discord.MessageEmbed()
@@ -16,25 +17,19 @@ const greeting = (message) => {
             return (
               ["🔍", "📤"].includes(reaction.emoji.name) &&
               user.id !== msg.author.id
-            ); //filter for only the emojis the bot reacted with.
+            ); //filter for only the emojis the user reacted with.
           };
           msg
             .awaitReactions(filter, { max: 1 })
             .then((collected) => {
               const userReaction = collected.last();
               if (userReaction.emoji.name === "🔍") {
-                console.log(userReaction.users.cache.last().username);
-                userReaction.users.cache
-                  .last()
-                  .send("You wanted to search a listing.");
-                  msg.delete();
+                userReaction.users.cache.last().send("Search embed here.");
+                msg.delete();
                 greeting(message);
               } else {
-                console.log(userReaction.users.cache.last().username);
-                userReaction.users.cache
-                  .last()
-                  .send("You wanted to create a listing.");
-                  msg.delete();
+                msg.delete();
+                CreateListing(userReaction.users.cache.last());
                 greeting(message);
               }
             })
