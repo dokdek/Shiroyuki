@@ -16,7 +16,7 @@ const serverSchema = new Schema ({
         type: String,
     },
     size: {
-        type: Number,
+        type: String,
     },
     description: {
         type: String,
