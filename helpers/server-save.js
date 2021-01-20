@@ -3,8 +3,9 @@ const Discord = require ("discord.js");
 
 
 const serverSave = (datacenter, server, name, description, size, playstyle, user) => {
+    let newListing;
     if (datacenter === "Aether"){
-    const newListing = new Aether({
+    newListing = new Aether({
         server: server,
         listingType: "Guild",
         name: name,
@@ -13,7 +14,7 @@ const serverSave = (datacenter, server, name, description, size, playstyle, user
         playstyle: playstyle
     })
 }else if(datacenter === "Primal"){
-    const newListing = new Primal({
+    newListing = new Primal({
         server: server,
         listingType: "Guild",
         name: name,
@@ -22,7 +23,7 @@ const serverSave = (datacenter, server, name, description, size, playstyle, user
         playstyle: playstyle
     })
 }else {
-    const newListing = new Crystal({
+    newListing = new Crystal({
         server: server,
         listingType: "Guild",
         name: name,

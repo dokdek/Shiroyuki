@@ -34,4 +34,5 @@ const Crystal = mongoose.model('Crystal', serverSchema);
 module.exports = {
     Aether,
     Primal,
+    Crystal,
 }
