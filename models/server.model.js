@@ -29,6 +29,7 @@ const serverSchema = new Schema ({
 //add more later
 const Aether = mongoose.model('Aether', serverSchema);
 const Primal = mongoose.model('Primal', serverSchema);
+const Crystal = mongoose.model('Crystal', serverSchema);
 
 module.exports = {
     Aether,
