@@ -1,6 +1,13 @@
 const Discord = require("discord.js");
 const serverSave = require("./server-save");
 
+
+const aetherServers = ["adamantoise","cactaur","faerie","gilgamesh","jenova","midgardsormr","sargatanas","siren"];
+const primalServers = ["behemoth",'excalibur',"exodus","famfrit","hyperion","lamia","leviathan","ultros"];
+const crystalServers = ["balmung","brynhildr","coeurl","diabolos","goblin","malboro","mateus","zalera"];
+
+
+
 //Make it into a promise function chain instead of doing whatever this awful chain is.
 
 const serverQuestion = (user, datacenter) => {
