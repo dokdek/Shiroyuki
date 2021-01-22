@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const serverQuestion = require("./server-question");
 
-
-const CreateListing = (user) => {
+const CreateListing = (user, type) => {
     const embeddedCreateListing = new Discord.MessageEmbed()
     .setColor("#DBFFFF")
     .setTitle("What is your Datacenter?")
@@ -32,7 +31,11 @@ const CreateListing = (user) => {
                      dataCenter = "Crystal";
                 }
                 msg.delete();
-                serverQuestion(user, dataCenter);
+                if(type === "create"){
+                  serverQuestion(user, dataCenter, type);
+                }else{
+                  serverQuestion(user, dataCenter, type);
+                }
               })
               .catch((err)=> console.log(err));
         })

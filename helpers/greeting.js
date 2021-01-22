@@ -24,12 +24,12 @@ const greeting = (message) => {
             .then((collected) => {
               const userReaction = collected.last();
               if (userReaction.emoji.name === "🔍") {
-                userReaction.users.cache.last().send("Search embed here.");
                 msg.delete();
+                CreateListing(userReaction.users.cache.last(), "search");
                 greeting(message);
               } else {
                 msg.delete();
-                CreateListing(userReaction.users.cache.last());
+                CreateListing(userReaction.users.cache.last(), "create");
                 greeting(message);
               }
             })
