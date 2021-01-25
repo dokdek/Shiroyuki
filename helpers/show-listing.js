@@ -13,7 +13,7 @@ const showListing = (datacenter, server, size, playstyle, user, sort) => {
             //May need to limit to 5 to get around rate limits.
             const embeddedMessage = new Discord.MessageEmbed()
               .setColor("#DBFFFF")
-              .setTitle("Name: " + listings[i].name)
+              .setTitle(listings[i].name)
               .setDescription(listings[i].description);
             user.send(embeddedMessage);
           }
