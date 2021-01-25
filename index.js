@@ -23,6 +23,7 @@ client.once("ready", () => {
 client.on("message", (message) => {
   if (
     message.content === "~init" &&
+    message.channel.type === "text" &&
     message.member.hasPermission("ADMINISTRATOR")
   ) {
     message.channel
