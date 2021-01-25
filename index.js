@@ -17,7 +17,7 @@ connection.once("open", () => {
 
 client.once("ready", () => {
   console.log("Bot ready!");
-  client.user.setActivity("Under Development");
+  client.user.setActivity("~help for help");
 });
 
 client.on("message", (message) => {
@@ -31,6 +31,9 @@ client.on("message", (message) => {
       .then((msg) => msg.delete({ timeout: 5000 }))
       .catch((err) => console.log(err));
     greeting(message);
+  }
+  if(message.content === "~help"){
+    message.channel.send("Use ~init to initiliaze me in a channel");
   }
 });
 
