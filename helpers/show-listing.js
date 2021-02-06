@@ -17,6 +17,11 @@ const showListing = (datacenter, server, size, playstyle, user, sort) => {
               .setDescription(listings[i].description);
             user.send(embeddedMessage);
           }
+        } else{
+          const embeddedMessage = new Discord.MessageEmbed()
+              .setColor("#DBFFFF")
+              .setTitle("None found :(");
+            user.send(embeddedMessage);
         }
       }
     );
