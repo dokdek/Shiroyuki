@@ -39,9 +39,9 @@ client.on("message", (message) => {
     .setColor("#DBFFFF")
     .setTitle("Commands")
     .addFields(
-      { name: "~g [tags]", value: "Searches Gelbooru for specified tags, a space indicates separate tags, tags with a space between them are separated via _"},
+      { name: "~g [tags]", value: "Searches Gelbooru for specified tags, a space indicates separate tags, tags with a space between them are separated via an underscore '_'"},
     );
-    message.channel.send("Use ~init to initiliaze me in a channel");
+    message.channel.send(embeddedGreeting);
   }
   const args = message.content.slice(2).split(/ +/);
   if(message.content.startsWith("~g") && args.length > 0){
