@@ -35,6 +35,12 @@ client.on("message", (message) => {
     greeting(message);
   }
   if(message.content === "~help"){
+    const embeddedGreeting = new Discord.MessageEmbed()
+    .setColor("#DBFFFF")
+    .setTitle("Commands")
+    .addFields(
+      { name: "~g [tags]", value: "Searches Gelbooru for specified tags, a space indicates separate tags, tags with a space between them are separated via _"},
+    );
     message.channel.send("Use ~init to initiliaze me in a channel");
   }
   const args = message.content.slice(2).split(/ +/);
