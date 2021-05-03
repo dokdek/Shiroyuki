@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const mongoose = require("mongoose");
 const { token } = require("./config.json");
 const greeting = require("./helpers/greeting");
+const gelbooru = require("./helpers/gelbooru");
+const randomHourly = require("./helpers/randomHourly");
 const { Aether, Primal } = require("./models/server.model");
 
 require("dotenv").config();
@@ -33,7 +35,20 @@ client.on("message", (message) => {
     greeting(message);
   }
   if(message.content === "~help"){
-    message.channel.send("Use ~init to initiliaze me in a channel");
+    const embeddedGreeting = new Discord.MessageEmbed()
+    .setColor("#DBFFFF")
+    .setTitle("Commands")
+    .addFields(
+      { name: "~g [tags]", value: "Searches Gelbooru for specified tags, a space indicates separate tags, tags with a space between them are separated via an underscore '_'"},
+    );
+    message.channel.send(embeddedGreeting);
+  }
+  const args = message.content.slice(2).split(/ +/);
+  if(message.content.startsWith("~g") && args.length > 0){
+    gelbooru(message,args);
+  }
+  if(message.content.startsWith("~hourly")){
+    randomHourly(message);
   }
 });
 
