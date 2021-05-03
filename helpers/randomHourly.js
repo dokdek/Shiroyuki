@@ -12,7 +12,7 @@ const randomHourly = (message) =>{
             .catch((err)=>{
                 console.log(err);
             });
-    }, 60 * 60);
+    }, 60 * 60 * 1000);
 }
 
 
