@@ -11,8 +11,10 @@ const randomHourly = (message) =>{
         axios.get(requestUrl)
             .then((res)=>{
                 embeddedMessage.setImage(res.data[0].file_url)
-                .setAuthor("Click me for source",'',res.data[0].source)
-                .setTitle("Random Hourly Image");
+                .setAuthor("Random Hourly Image")
+                .setFooter("Gelbooru", "https://pbs.twimg.com/profile_images/1118350008003301381/3gG6lQMl_400x400.png")
+                .setTitle("Click me for source")
+                .setURL(res.data[0].source);
                 channel.send(embeddedMessage);
             })
             .catch((err)=>{
