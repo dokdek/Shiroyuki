@@ -4,7 +4,8 @@ const { token } = require("./config.json");
 const greeting = require("./helpers/greeting");
 const gelbooru = require("./helpers/gelbooru");
 const randomHourly = require("./helpers/randomHourly");
-const { Aether, Primal } = require("./models/server.model");
+const PixivApi = require('pixiv-api-client');
+const pixiv = new PixivApi(); 
 
 require("dotenv").config();
 
@@ -18,7 +19,14 @@ connection.once("open", () => {
 });
 
 client.once("ready", () => {
+  console.log("refreshing pixiv token");
+  pixiv.refreshAccessToken(process.env.PIXIV_TOKEN)
+    .then(console.log("Refresh Successful"))
+    .catch((err)=>{
+      console.log(err);
+    });
   console.log("Bot ready!");
+  setInterval(refreshPixivToken,45 * 60 * 1000);
   client.user.setActivity("~help for help");
 });
 
@@ -50,6 +58,19 @@ client.on("message", (message) => {
   if(message.content.startsWith("~hourly")){
     randomHourly(message);
   }
+  if(message.content.startsWith("~p")){
+
+  }
 });
+
+function refreshPixivToken(){
+  console.log("refreshing pixiv token");
+  client.user.setActivity("~help for help");
+  pixiv.refreshAccessToken(process.env.PIXIV_TOKEN)
+    .then(console.log("Refresh Successful"))
+    .catch((err)=>{
+      console.log(err);
+    });
+}
 
 client.login(token);
