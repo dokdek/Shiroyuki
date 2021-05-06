@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const axios = require("axios");
 
 const gelbooru = (message, args) =>{
-    args.shift();
     const requestUrl = "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=1&tags=breasts~ sort:random score:>=10 -censored -uncensored -rape -torture -nude -pussy -shota ";
 
     const embeddedMessage = new Discord.MessageEmbed()
