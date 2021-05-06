@@ -4,6 +4,7 @@ const { token } = require("./config.json");
 const greeting = require("./helpers/greeting");
 const gelbooru = require("./helpers/gelbooru");
 const randomHourly = require("./helpers/randomHourly");
+const pixivSearch = require("./helpers/pixiv");
 const PixivApi = require('pixiv-api-client');
 const pixiv = new PixivApi(); 
 
@@ -51,7 +52,8 @@ client.on("message", (message) => {
     );
     message.channel.send(embeddedGreeting);
   }
-  const args = message.content.slice(2).split(/ +/);
+  const args = message.content.slice(2).split(" ");
+  args.shift();
   if(message.content.startsWith("~g") && args.length > 0){
     gelbooru(message,args);
   }
@@ -59,7 +61,7 @@ client.on("message", (message) => {
     randomHourly(message);
   }
   if(message.content.startsWith("~p")){
-
+    pixivSearch(message, message.content.slice(2), pixiv);
   }
 });
 
