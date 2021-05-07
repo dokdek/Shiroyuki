@@ -17,6 +17,7 @@ const randomHourly = (channel) =>{
                 channel.send(embeddedMessage);
             })
             .catch((err)=>{
+                console.log(err);
                 embeddedMessage.setDescription("I've encountered an error");
                 message.channel.send(embeddedMessage);
             });
