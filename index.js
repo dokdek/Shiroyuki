@@ -5,6 +5,7 @@ const greeting = require("./helpers/greeting");
 const gelbooru = require("./helpers/gelbooru");
 const randomHourly = require("./helpers/randomHourly");
 const pixivSearch = require("./helpers/pixiv");
+const topDaily = require("./helpers/top-daily");
 const PixivApi = require('pixiv-api-client');
 const pixiv = new PixivApi(); 
 
@@ -49,6 +50,7 @@ client.on("message", (message) => {
     .setTitle("Commands")
     .addFields(
       { name: "~g [tags]", value: "Searches Gelbooru for specified tags, a space indicates separate tags, tags with a space between them are separated via an underscore '_'"},
+      { name: "~p [tags]", value: "Searches Pixiv for specified tags, use Japanese for best results as searches using Pixiv tags, which are almost all in Japanese. Please don't use this command too much since it uses my personal Pixiv account."},
     );
     message.channel.send(embeddedGreeting);
   }
@@ -59,6 +61,9 @@ client.on("message", (message) => {
   }
   if(message.content.startsWith("~hourly")){
     randomHourly(message);
+  }
+  if(message.content.startsWith("~daily")){
+    topDaily(message, pixiv);
   }
   if(message.content.startsWith("~p")){
     pixivSearch(message, message.content.slice(2), pixiv);
