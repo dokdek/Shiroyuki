@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const axios = require("axios");
 
-const randomHourly = (message) =>{
-    const channel = message.channel;
+const randomHourly = (channel) =>{
     const embeddedMessage = new Discord.MessageEmbed()
     .setColor("#DBFFFF")
     .setTitle("Random Hourly Picture");

@@ -60,7 +60,7 @@ client.on("message", (message) => {
     gelbooru(message,args);
   }
   if(message.content.startsWith("~hourly")){
-    randomHourly(message);
+    randomHourly(message.channel);
   }
   if(message.content.startsWith("~daily")){
     topDaily(message, pixiv);
