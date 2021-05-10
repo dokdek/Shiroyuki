@@ -13,7 +13,7 @@ npm install
 node index.js
 ```
 - Bot uses a .env and config.json file for sensitive information like Discord, Pixiv, and MongoDB token. You will need to create these files with your own keys. 
-config.json should contain your Discord token, while your .env file will contain your Pixiv token with the format
+config.json should contain your Discord token, while your .env file will contain your Pixiv and MongoDB token with the format
 ```
 PIXIV_TOKEN=YOUR_PIXIV_TOKEN
 ATLAS_URI=YOUR_MONGODB_TOKEN
