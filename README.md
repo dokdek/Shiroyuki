@@ -12,9 +12,10 @@ A Discord bot made for personal use to post random images from image boards to a
 npm install
 node index.js
 ```
-- Bot uses a .env and config.json file for sensitive information like Discord token and Pixiv token. You will need to create these files with your own keys. 
+- Bot uses a .env and config.json file for sensitive information like Discord, Pixiv, and MongoDB token. You will need to create these files with your own keys. 
 config.json should contain your Discord token, while your .env file will contain your Pixiv token with the format
 ```
 PIXIV_TOKEN=YOUR_PIXIV_TOKEN
+ATLAS_URI=YOUR_MONGODB_TOKEN
 ```
 - To obtain your Pixiv token, use this [script](https://gist.github.com/ZipFile/c9ebedb224406f4f11845ab700124362).
