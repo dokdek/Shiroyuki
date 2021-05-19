@@ -63,7 +63,7 @@ client.on("message", (message) => {
     randomHourly(message.channel);
   }
   if(message.content.startsWith("~daily")){
-    topDaily(message, pixiv);
+    topDaily(message.channel, pixiv);
   }
   if(message.content.startsWith("~p")){
     pixivSearch(message, message.content.slice(2), pixiv);
